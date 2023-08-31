@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digital clock</title>
+    <link rel="stylesheet" href="style.css">
+        <style>
+        body{
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    /* background: url("https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YmFja2dyb3VuZCUyMGltYWdlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"); */
+background-color: black;
+}
+h2{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 14px;
+    text-align: center;
+    
+}
+.clock{
+display: flex;
+}
+.clock div{
+    margin: 5px;
+
+}
+.clock span{
+    width: 100px;
+    height: 80px;
+    /* background-color: rgb(12, 133, 213); */
+    opacity: .8;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 50px;
+    text-shadow: 2px 2px 4px black;
+
+}
+.clock .text{
+    height: 30px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* background: darkblue; */
+    opacity: 0.8;
+    background-size: cover;
+}
+/* .clock #ampm{
+     bottom: 0; 
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    font-size: 20px;
+    background: green;
+} */
+    </style>
+</head>
+<body>
+    <h2>Digital Clock</h2>
+<div class="clock">
+    <div>
+        <span id="hour">00</span>
+        <span class="text">Hours</span>
+    </div>
+
+    <div>
+        <span id="minutes">00</span>
+        <span class="text">minutes</span>
+    </div>
+
+    <div>
+        <span id="seconds">00</span>
+        <span class="text">seconds</span>
+    </div>
+
+    <div>
+        <span id="ampm">AM</span>
+    </div>
+</div>
+<script>
+   const ele1 = document.getElementById('hour');
+const ele2 = document.getElementById('minutes');
+const ele3 = document.getElementById('seconds');
+const ele4 = document.getElementById('ampm');
+
+function clockshow() {
+    let h = new Date().getHours();
+    let m = new Date().getMinutes();
+    let s = new Date().getSeconds();
+
+    let ampm = "AM";
+    if (h > 12) {
+        h = h - 12;
+        ampm = "PM";
+    }
+    ele1.innerText = h;
+    ele2.innerText = m;
+    ele3.innerText = s;
+    ele4.innerText = ampm;
+    setTimeout(clockshow, 1000);
+}
+
+clockshow();
+</script>
+</body>
+</html>
